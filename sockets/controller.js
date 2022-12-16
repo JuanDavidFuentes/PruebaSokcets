@@ -17,6 +17,12 @@ const socketController=(socket)=>{
         socket.broadcast.emit('notificar',msg)
         callback("Mensajes enviados")// mensaje para todos u este colback es para saber si lo amnde
     })
+
+    socket.on('nuevoMensaje',function(msg,callback){
+        console.log(msg);
+        socket.broadcast.emit('notificarChat',msg)
+        callback("Mensajes enviados")// mensaje para todos u este colback es para saber si lo amnde
+    })
 }
 
 export default socketController
